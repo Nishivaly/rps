@@ -1,19 +1,19 @@
 let humanChoice = getHumanChoice();
-console.log("Human choice is: " + humanChoice);
 
 let computerChoice = getComputerChoice();
-console.log("Computer choice is: " + computerChoice);
 
 decideWinner(humanChoice, computerChoice);
 
 function getHumanChoice() {
     let playerChoice = prompt("Choose rock, paper or scissors");
     while (true) {
-        switch (playerChoice.toLowerCase()) {
+        playerChoice = playerChoice.toLowerCase();
+        switch (playerChoice) {
             case "rock":
             case "paper":
             case "scissors":
-                return playerChoice.toLowerCase();
+                console.log("Human choice is: " + playerChoice);
+                return playerChoice;
             default:
                 playerChoice = prompt("Invalid choice, try again");
                 break;
@@ -24,7 +24,9 @@ function getHumanChoice() {
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
     const randomIndex = Math.floor(Math.random() * options.length);
-    return options[randomIndex];
+    let computerChoice = options[randomIndex];
+    console.log("Computer choice is: " + computerChoice);
+    return computerChoice;
 }
 
 function decideWinner(humanChoice, computerChoice) {
