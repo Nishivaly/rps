@@ -19,17 +19,17 @@ function playGame() {
 }
 
 function getHumanChoice() {
-    let playerChoice = prompt("Choose rock, paper or scissors");
+    let humanChoice = prompt("Choose rock, paper or scissors");
     while (true) {
-        playerChoice = playerChoice.toLowerCase();
-        switch (playerChoice) {
+        humanChoice = humanChoice.toLowerCase();
+        switch (humanChoice) {
             case "rock":
             case "paper":
             case "scissors":
-                console.log("Human choice is: " + playerChoice);
-                return playerChoice;
+                console.log("Human choice is: " + humanChoice);
+                return humanChoice;
             default:
-                playerChoice = prompt("Invalid choice, try again");
+                humanChoice = prompt("Invalid choice, try again");
                 break;
         }
     }
