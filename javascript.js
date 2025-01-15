@@ -1,15 +1,15 @@
 let humanScore = 0;
 let computerScore = 0;
 
-for (let i = 0; i <+ 5; i++) {
-    playGame();    
-}
+playGame();
 
 function playGame() {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-    decideWinner(humanChoice, computerChoice);
-    console.log(`Player score: ${humanScore} - Computer score: ${computerScore}`)
+    for (let i = 0; i <+ 5; i++) {
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+        console.log(`Player score: ${humanScore} - Computer score: ${computerScore}`)
+    }
 }
 
 function getHumanChoice() {
@@ -37,7 +37,7 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function decideWinner(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
         case "rock":
             if (computerChoice == "paper") {
