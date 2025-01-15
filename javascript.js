@@ -1,21 +1,20 @@
-let humanScore = 0;
-let computerScore = 0;
-
 playGame();
 
 function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
     for (let i = 0; i < + 5; i++) {
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
+        [humanScore, computerScore] = playRound(humanChoice, computerChoice, humanScore, computerScore);
         console.log(`Player score: ${humanScore} - Computer score: ${computerScore}`);
     }
     if (humanScore > computerScore) {
-        console.log("You win the game!");   
+        console.log("You win the game!");
     } else if (humanScore < computerScore) {
-        console.log("You lose the game!");   
+        console.log("You lose the game!");
     } else {
-        console.log("You tie the game!");   
+        console.log("You tie the game!");
     }
 }
 
@@ -44,7 +43,7 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     switch (humanChoice) {
         case "rock":
             if (computerChoice == "paper") {
@@ -82,4 +81,5 @@ function playRound(humanChoice, computerChoice) {
             }
             break;
     }
+    return [humanScore, computerScore];
 }
