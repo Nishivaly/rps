@@ -1,8 +1,16 @@
-let humanChoice = getHumanChoice();
+let humanScore = 0;
+let computerScore = 0;
 
-let computerChoice = getComputerChoice();
+for (let i = 0; i <+ 5; i++) {
+    playGame();    
+}
 
-decideWinner(humanChoice, computerChoice);
+function playGame() {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+    decideWinner(humanChoice, computerChoice);
+    console.log(`Player score: ${humanScore} - Computer score: ${computerScore}`)
+}
 
 function getHumanChoice() {
     let playerChoice = prompt("Choose rock, paper or scissors");
@@ -34,8 +42,10 @@ function decideWinner(humanChoice, computerChoice) {
         case "rock":
             if (computerChoice == "paper") {
                 console.log("You lose");
+                computerScore++;
             } else if (computerChoice == "scissors") {
                 console.log("You win");
+                humanScore++;
             } else {
                 console.log("You tie");
             }
@@ -44,8 +54,10 @@ function decideWinner(humanChoice, computerChoice) {
         case "paper":
             if (computerChoice == "scissors") {
                 console.log("You lose");
+                computerScore++;
             } else if (computerChoice == "rock") {
                 console.log("You win");
+                humanScore++;
             } else {
                 console.log("You tie");
             }
@@ -54,8 +66,10 @@ function decideWinner(humanChoice, computerChoice) {
         case "scissors":
             if (computerChoice == "rock") {
                 console.log("You lose");
+                computerScore++
             } else if (computerChoice == "paper") {
                 console.log("You win");
+                humanScore++;
             } else {
                 console.log("You tie");
             }
