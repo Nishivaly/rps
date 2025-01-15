@@ -4,11 +4,11 @@ let computerScore = 0;
 playGame();
 
 function playGame() {
-    for (let i = 0; i <+ 5; i++) {
+    for (let i = 0; i < + 5; i++) {
         let humanChoice = getHumanChoice();
         let computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
-        console.log(`Player score: ${humanScore} - Computer score: ${computerScore}`)
+        console.log(`Player score: ${humanScore} - Computer score: ${computerScore}`);
     }
 }
 
@@ -66,7 +66,7 @@ function playRound(humanChoice, computerChoice) {
         case "scissors":
             if (computerChoice == "rock") {
                 console.log("You lose");
-                computerScore++
+                computerScore++;
             } else if (computerChoice == "paper") {
                 console.log("You win");
                 humanScore++;
