@@ -5,8 +5,8 @@ playGame();
 
 function playGame() {
     for (let i = 0; i < + 5; i++) {
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
         console.log(`Player score: ${humanScore} - Computer score: ${computerScore}`);
     }
