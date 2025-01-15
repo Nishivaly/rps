@@ -10,6 +10,13 @@ function playGame() {
         playRound(humanChoice, computerChoice);
         console.log(`Player score: ${humanScore} - Computer score: ${computerScore}`);
     }
+    if (humanScore > computerScore) {
+        console.log("You win the game!");   
+    } else if (humanScore < computerScore) {
+        console.log("You lose the game!");   
+    } else {
+        console.log("You tie the game!");   
+    }
 }
 
 function getHumanChoice() {
@@ -41,37 +48,37 @@ function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
         case "rock":
             if (computerChoice == "paper") {
-                console.log("You lose");
+                console.log("You lose the round!");
                 computerScore++;
             } else if (computerChoice == "scissors") {
-                console.log("You win");
+                console.log("You win the round!");
                 humanScore++;
             } else {
-                console.log("You tie");
+                console.log("You tie the round!");
             }
             break;
 
         case "paper":
             if (computerChoice == "scissors") {
-                console.log("You lose");
+                console.log("You lose the round!");
                 computerScore++;
             } else if (computerChoice == "rock") {
-                console.log("You win");
+                console.log("You win the round!");
                 humanScore++;
             } else {
-                console.log("You tie");
+                console.log("You tie the round!");
             }
             break;
 
         case "scissors":
             if (computerChoice == "rock") {
-                console.log("You lose");
+                console.log("You lose the round!");
                 computerScore++;
             } else if (computerChoice == "paper") {
-                console.log("You win");
+                console.log("You win the round!");
                 humanScore++;
             } else {
-                console.log("You tie");
+                console.log("You tie the round!");
             }
             break;
     }
