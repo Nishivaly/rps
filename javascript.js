@@ -30,21 +30,21 @@ function getComputerChoice() {
 
 function playRound(playerChoice, computerChoice) {
     let playerScore = document.querySelector('#player-score')
-    let currentPlayerScore = parseInt(playerScore.textContent);
+    let currentPlayerScore = parseInt(playerScore.textContent.replace(/[^\d]/g, ""), 10);
 
     let computerScore = document.querySelector('#computer-score')
-    let currentComputerScore = parseInt(computerScore.textContent);
+    let currentComputerScore = parseInt(computerScore.textContent.replace(/[^\d]/g, ""), 10);
 
     switch (playerChoice) {
         case 'rock':
             if (computerChoice == 'paper') {
                 console.log('You lose the round!');
                 currentComputerScore++;
-                computerScore.textContent = currentComputerScore;
+                computerScore.textContent = `Computer score: ${currentComputerScore}`;
             } else if (computerChoice == 'scissors') {
                 console.log('You win the round!');
                 currentPlayerScore++;
-                playerScore.textContent = currentPlayerScore;
+                playerScore.textContent = `Player score: ${currentPlayerScore}`;
             } else {
                 console.log('You tie the round!');
             }
@@ -54,11 +54,11 @@ function playRound(playerChoice, computerChoice) {
             if (computerChoice == 'scissors') {
                 console.log('You lose the round!');
                 currentComputerScore++;
-                computerScore.textContent = currentComputerScore;
+                computerScore.textContent = `Computer score: ${currentComputerScore}`;
             } else if (computerChoice == 'rock') {
                 console.log('You win the round!');
                 currentPlayerScore++;
-                playerScore.textContent = currentPlayerScore;
+                playerScore.textContent = `Player score: ${currentPlayerScore}`;
             } else {
                 console.log('You tie the round!');
             }
@@ -68,24 +68,24 @@ function playRound(playerChoice, computerChoice) {
             if (computerChoice == 'rock') {
                 console.log('You lose the round!');
                 currentComputerScore++;
-                computerScore.textContent = currentComputerScore;
+                computerScore.textContent = `Computer score: ${currentComputerScore}`;
             } else if (computerChoice == 'paper') {
                 console.log('You win the round!');
                 currentPlayerScore++;
-                playerScore.textContent = currentPlayerScore;
+                playerScore.textContent = `Player score: ${currentPlayerScore}`;
             } else {
                 console.log('You tie the round!');
             }
             break;
     }
 
-    if (parseInt(playerScore.textContent) === 5) {
+    if (parseInt(playerScore.textContent.replace(/[^\d]/g, ""), 10) === 5) {
         alert('you win');
-        playerScore.textContent = 0;
-        computerScore.textContent = 0;
-    } else if (parseInt(computerScore.textContent) === 5) {
+        playerScore.textContent = 'Player score: 0';
+        computerScore.textContent = 'Computer score: 0';
+    } else if (parseInt(computerScore.textContent.replace(/[^\d]/g, ""), 10) === 5) {
         alert('you lose');
-        playerScore.textContent = 0;
-        computerScore.textContent = 0;
+        playerScore.textContent = 'Player score: 0';
+        computerScore.textContent = 'Computer score: 0';
     }
 }
