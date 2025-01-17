@@ -4,9 +4,9 @@
 //     let humanScore = 0;
 //     let computerScore = 0;
 //     for (let i = 0; i < + 5; i++) {
-//         const humanChoice = getHumanChoice();
+//         const playerChoice = getplayerChoice();
 //         const computerChoice = getComputerChoice();
-//         [humanScore, computerScore] = playRound(humanChoice, computerChoice, humanScore, computerScore);
+//         [humanScore, computerScore] = playRound(playerChoice, computerChoice, humanScore, computerScore);
 //         console.log(`Player score: ${humanScore} - Computer score: ${computerScore}`);
 //     }
 //     if (humanScore > computerScore) {
@@ -18,42 +18,27 @@
 //     }
 // }
 
-const playerChoices = document.querySelector('#playerChoices');
+const playerChoices = document.querySelector('#player-choices');
 
 playerChoices.addEventListener('click', event => {
-    const computerChoice = getComputerChoice();
-    const playerChoice = getPlayerChoice(event, computerChoice);
-    playRound(playerChoice, computerChoice);
+    if (event.target.id != 'player-choices') {
+        const computerChoice = getComputerChoice();
+        const playerChoice = getPlayerChoice(event);
+        playRound(playerChoice, computerChoice);
+    }
 });
 
-function getPlayerChoice(event, computerChoice) {
+function getPlayerChoice(event) {
     console.log(event.target.id);
     switch (event.target.id) {
-        case rock:
+        case 'rock':
             return 'rock';
-        case paper:
+        case 'paper':
             return 'paper'
-        case scissors:
+        case 'scissors':
             return 'scissors'
     }
 }
-
-// function getHumanChoice() {
-//     let humanChoice = prompt("Choose rock, paper or scissors");
-//     while (true) {
-//         humanChoice = humanChoice.toLowerCase();
-//         switch (humanChoice) {
-//             case "rock":
-//             case "paper":
-//             case "scissors":
-//                 console.log("Human choice is: " + humanChoice);
-//                 return humanChoice;
-//             default:
-//                 humanChoice = prompt("Invalid choice, try again");
-//                 break;
-//         }
-//     }
-// }
 
 function getComputerChoice() {
     const options = ['rock', 'paper', 'scissors'];
@@ -63,43 +48,43 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// function playRound(humanChoice, computerChoice, humanScore, computerScore) {
-//     switch (humanChoice) {
-//         case "rock":
-//             if (computerChoice == "paper") {
-//                 console.log("You lose the round!");
-//                 computerScore++;
-//             } else if (computerChoice == "scissors") {
-//                 console.log("You win the round!");
-//                 humanScore++;
-//             } else {
-//                 console.log("You tie the round!");
-//             }
-//             break;
+function playRound(playerChoice, computerChoice, humanScore, computerScore) {
+    switch (playerChoice) {
+        case "rock":
+            if (computerChoice == "paper") {
+                console.log("You lose the round!");
+                computerScore++;
+            } else if (computerChoice == "scissors") {
+                console.log("You win the round!");
+                humanScore++;
+            } else {
+                console.log("You tie the round!");
+            }
+            break;
 
-//         case "paper":
-//             if (computerChoice == "scissors") {
-//                 console.log("You lose the round!");
-//                 computerScore++;
-//             } else if (computerChoice == "rock") {
-//                 console.log("You win the round!");
-//                 humanScore++;
-//             } else {
-//                 console.log("You tie the round!");
-//             }
-//             break;
+        case "paper":
+            if (computerChoice == "scissors") {
+                console.log("You lose the round!");
+                computerScore++;
+            } else if (computerChoice == "rock") {
+                console.log("You win the round!");
+                humanScore++;
+            } else {
+                console.log("You tie the round!");
+            }
+            break;
 
-//         case "scissors":
-//             if (computerChoice == "rock") {
-//                 console.log("You lose the round!");
-//                 computerScore++;
-//             } else if (computerChoice == "paper") {
-//                 console.log("You win the round!");
-//                 humanScore++;
-//             } else {
-//                 console.log("You tie the round!");
-//             }
-//             break;
-//     }
-//     return [humanScore, computerScore];
-// }
+        case "scissors":
+            if (computerChoice == "rock") {
+                console.log("You lose the round!");
+                computerScore++;
+            } else if (computerChoice == "paper") {
+                console.log("You win the round!");
+                humanScore++;
+            } else {
+                console.log("You tie the round!");
+            }
+            break;
+    }
+    return [humanScore, computerScore];
+}
