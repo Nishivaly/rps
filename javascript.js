@@ -21,16 +21,22 @@
 const playerChoices = document.querySelector('#playerChoices');
 
 playerChoices.addEventListener('click', event => {
-    console.log(event.target.id);
-    switch (event.target) {
-        case rock:
-            break;
-        case paper:
-            break;
-        case scissors:
-            break;
-    }
+    const computerChoice = getComputerChoice();
+    const playerChoice = getPlayerChoice(event, computerChoice);
+    playRound(playerChoice, computerChoice);
 });
+
+function getPlayerChoice(event, computerChoice) {
+    console.log(event.target.id);
+    switch (event.target.id) {
+        case rock:
+            return 'rock';
+        case paper:
+            return 'paper'
+        case scissors:
+            return 'scissors'
+    }
+}
 
 // function getHumanChoice() {
 //     let humanChoice = prompt("Choose rock, paper or scissors");
@@ -49,13 +55,13 @@ playerChoices.addEventListener('click', event => {
 //     }
 // }
 
-// function getComputerChoice() {
-//     const options = ["rock", "paper", "scissors"];
-//     const randomIndex = Math.floor(Math.random() * options.length);
-//     let computerChoice = options[randomIndex];
-//     console.log("Computer choice is: " + computerChoice);
-//     return computerChoice;
-// }
+function getComputerChoice() {
+    const options = ['rock', 'paper', 'scissors'];
+    const randomIndex = Math.floor(Math.random() * options.length);
+    let computerChoice = options[randomIndex];
+    console.log('Computer choice is: ' + computerChoice);
+    return computerChoice;
+}
 
 // function playRound(humanChoice, computerChoice, humanScore, computerScore) {
 //     switch (humanChoice) {
