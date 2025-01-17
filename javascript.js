@@ -48,15 +48,23 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function playRound(playerChoice, computerChoice, humanScore, computerScore) {
+function playRound(playerChoice, computerChoice) {
+    let playerScore = document.querySelector('#player-score')
+    let currentPlayerScore = parseInt(playerScore.textContent);
+
+    let computerScore = document.querySelector('#computer-score')
+    let currentComputerScore = parseInt(computerScore.textContent);
+
     switch (playerChoice) {
         case "rock":
             if (computerChoice == "paper") {
                 console.log("You lose the round!");
-                computerScore++;
+                currentComputerScore++;
+                computerScore.textContent = currentComputerScore;
             } else if (computerChoice == "scissors") {
                 console.log("You win the round!");
-                humanScore++;
+                currentPlayerScore++;
+                playerScore.textContent = currentPlayerScore;
             } else {
                 console.log("You tie the round!");
             }
@@ -65,10 +73,12 @@ function playRound(playerChoice, computerChoice, humanScore, computerScore) {
         case "paper":
             if (computerChoice == "scissors") {
                 console.log("You lose the round!");
-                computerScore++;
+                currentComputerScore++;
+                computerScore.textContent = currentComputerScore;
             } else if (computerChoice == "rock") {
                 console.log("You win the round!");
-                humanScore++;
+                currentPlayerScore++;
+                playerScore.textContent = currentPlayerScore;
             } else {
                 console.log("You tie the round!");
             }
@@ -77,14 +87,16 @@ function playRound(playerChoice, computerChoice, humanScore, computerScore) {
         case "scissors":
             if (computerChoice == "rock") {
                 console.log("You lose the round!");
-                computerScore++;
+                currentComputerScore++;
+                computerScore.textContent = currentComputerScore;
             } else if (computerChoice == "paper") {
                 console.log("You win the round!");
-                humanScore++;
+                currentPlayerScore++;
+                playerScore.textContent = currentPlayerScore;
             } else {
                 console.log("You tie the round!");
             }
             break;
     }
-    return [humanScore, computerScore];
+    // return [humanScore, computerScore];
 }
